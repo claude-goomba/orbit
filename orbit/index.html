@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="aurora">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbit — AI Assistant</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="app">
+    <aside class="side">
+      <div class="brand"><span>◉ Orbit</span></div>
+      <button class="nbtn" id="newChat">+ New chat</button>
+      <div class="sessLabel">Sessions</div>
+      <div class="sess" id="sessList"></div>
+      <div class="sideFoot">
+        <button class="kbtn" id="settingsBtn" title="Settings">⚙ API key</button>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="top">
+        <div class="idx" id="idxLabel">index: …</div>
+        <div class="spacer"></div>
+        <div class="themes" id="themes"></div>
+        <button class="kbtn" id="exportBtn" title="Export chat">Export</button>
+        <button class="kbtn" id="clearBtn" title="Clear chat">Clear</button>
+      </div>
+      <div class="chat">
+        <div class="msgs" id="msgs"></div>
+        <div class="chips" id="chips">
+          <span class="chip">What is the speed of light?</span>
+          <span class="chip">Tell me a joke</span>
+          <span class="chip">10 km to miles</span>
+          <span class="chip">Who was Ada Lovelace?</span>
+          <span class="chip">What time is it?</span>
+        </div>
+        <div class="chatbar">
+          <input type="text" id="chatInput" placeholder="Ask Orbit… or type /help" autocomplete="off" />
+          <button class="btn" id="send">Send</button>
+        </div>
+        <div class="hint">Offline by default — a local ELIZA‑style brain with a large index + unit converter. Set a DeepSeek key (⚙) for real‑model power mode. Type <b>/help</b> for commands.</div>
+      </div>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
