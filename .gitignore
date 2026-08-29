@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.app/
+electron-app/app/
+.DS_Store
+orbit/app/
+react-app/
