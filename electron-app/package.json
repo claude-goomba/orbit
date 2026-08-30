@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package": "electron-packager . Orbit --platform=darwin --arch=x64 --out=dist --overwrite --app-bundle-id=com.example.orbit"
+    "package": "electron-packager . Orbit --platform=darwin --arch=x64 --out=dist --overwrite --app-bundle-id=com.example.orbit --icon=icon.icns"
   },
   "devDependencies": {
     "electron": "^22.3.0",

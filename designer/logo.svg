@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="32" height="32" role="img" aria-label="Orbit — next iPhone inspired">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a233e"/>
+      <stop offset="100%" stop-color="#0e1220"/>
+    </linearGradient>
+  </defs>
+  <!-- next-iPhone body — flat titanium edge, large rounded corners -->
+  <rect x="32" y="14" width="56" height="92" rx="16" fill="#0e1220" stroke="url(#g)" stroke-width="2.6"/>
+  <!-- screen -->
+  <rect x="36" y="18" width="48" height="84" rx="12" fill="url(#screen)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+  <!-- Dynamic Island — pill -->
+  <rect x="48" y="22" width="24" height="7" rx="3.5" fill="#000" opacity="0.95"/>
+  <!-- horizontal camera bar hint (next iPhone) — subtle line at back implied by top edge highlight -->
+  <rect x="36" y="18" width="48" height="1.5" rx="0.75" fill="url(#g)" opacity="0.9"/>
+  <!-- orbit ring around phone -->
+  <ellipse cx="60" cy="60" rx="40" ry="30" fill="none" stroke="url(#g)" stroke-width="1.6" opacity="0.95"/>
+  <!-- orbit dot -->
+  <circle cx="92" cy="36" r="3.2" fill="url(#g)" stroke="#fff" stroke-width="0.8"/>
+  <circle cx="28" cy="84" r="2" fill="#fff" opacity="0.9"/>
+</svg>
