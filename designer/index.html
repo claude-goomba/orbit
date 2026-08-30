@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="aurora">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phone Designer — very friendly</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="app">
+    <aside class="side">
+      <div class="brand"><span>◉ Designer</span></div>
+      <div class="sessLabel">Devices — also supports other stuff</div>
+      <div class="deviceList" id="deviceList">
+        <button class="dBtn on" data-dev="phone">📱 Phone</button>
+        <button class="dBtn" data-dev="tablet">📖 Tablet</button>
+        <button class="dBtn" data-dev="watch">⌚ Watch</button>
+        <button class="dBtn" data-dev="desktop">🖥 Desktop</button>
+      </div>
+      <div class="sessLabel">Templates</div>
+      <div class="tmplList" id="tmplList">
+        <button class="tBtn" data-tmpl="blank">Blank</button>
+        <button class="tBtn" data-tmpl="login">Login</button>
+        <button class="tBtn" data-tmpl="profile">Profile</button>
+        <button class="tBtn" data-tmpl="shop">Shop</button>
+      </div>
+      <div class="sideFoot" style="margin-top:auto">
+        <button class="kbtn" id="exportDesign" style="width:100%">⬇ Export JSON</button>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="top">
+        <div class="dTopLabel" id="deviceLabel">📱 Phone • 390×844</div>
+        <div class="spacer"></div>
+        <div class="themes" id="themes"></div>
+        <button class="kbtn" id="clearDesign">Clear</button>
+        <button class="kbtn" id="saveDesign">Save</button>
+        <button class="kbtn" id="importDesign">Import</button>
+      </div>
+      <div class="designer" id="designerView">
+        <div class="dBody">
+          <div class="palette" id="palette">
+            <div class="palLabel">Add — click to place</div>
+            <button class="pBtn" data-type="text">📝 Text</button>
+            <button class="pBtn" data-type="button">🔘 Button</button>
+            <button class="pBtn" data-type="input">⌧ Input</button>
+            <button class="pBtn" data-type="image">🖼 Image</button>
+            <button class="pBtn" data-type="card">▭ Card</button>
+            <button class="pBtn" data-type="icon">⭐ Icon</button>
+            <div class="palHint">Drag to move<br>Click to edit →<br>Double‑click text</div>
+          </div>
+          <div class="canvasWrap">
+            <div class="phoneFrame" id="phoneFrame">
+              <div class="phoneNotch"></div>
+              <div class="phoneScreen" id="phoneScreen"></div>
+            </div>
+          </div>
+          <div class="props" id="props">
+            <div class="propsEmpty" id="propsEmpty">👈 Select an element<br><span>Click anything on the phone to edit it</span></div>
+            <div id="propsForm" style="display:none">
+              <label>Text <input id="propText" placeholder="Hello" /></label>
+              <label>Background <input id="propBg" type="color" /></label>
+              <label>Text color <input id="propColor" type="color" /></label>
+              <div class="rangeRow"><label>Size <span id="propSizeV">16</span></label><input id="propSize" type="range" min="10" max="32" /></div>
+              <div class="rangeRow"><label>Width <span id="propWV">120</span></label><input id="propW" type="range" min="40" max="360" /></div>
+              <div class="rangeRow"><label>Height <span id="propHV">40</span></label><input id="propH" type="range" min="20" max="220" /></div>
+              <div class="rangeRow"><label>Radius <span id="propRV">8</span></label><input id="propR" type="range" min="0" max="32" /></div>
+              <button id="propDelete" class="kbtn delBtn">🗑 Delete element</button>
+            </div>
+          </div>
+        </div>
+        <div class="hint">Very friendly — no code needed. Supports phone, tablet, watch, desktop. Drag, click, edit. Templates give you a head start.</div>
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
