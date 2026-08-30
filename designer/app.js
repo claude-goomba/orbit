@@ -104,6 +104,7 @@
     var ti=load('designer_theme',0); document.documentElement.setAttribute('data-theme', THEMES[ti]||'aurora');
     var dots=$('#themes'); THEMES.forEach(function(th,i){ var d=document.createElement('span'); d.className='dot'; d.style.background=({aurora:'#5eead4',sunset:'#fb923c',neon:'#22d3ee',forest:'#34d399'})[th]; d.addEventListener('click', function(){ setTheme(i); }); dots.appendChild(d); });
     setTheme(ti);
+    (function(){ function tick(){ var a=$('#liveTime'), b=$('#phoneTime'); var d=new Date(); var t=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); if(a) a.textContent=t+' • '+d.toLocaleDateString([],{month:'short',day:'numeric'}); if(b) b.textContent=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); } tick(); setInterval(tick,60000); setInterval(function(){ var b=$('#phoneTime'); if(b){ var d=new Date(); b.textContent=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }},1000); })();
     desRender(); desUpdateProps();
     document.querySelectorAll('#palette .pBtn').forEach(function(b){ b.addEventListener('click', function(){ desAdd(this.dataset.type); }); });
     document.querySelectorAll('#deviceList .dBtn').forEach(function(b){ b.addEventListener('click', function(){ desSetDevice(this.dataset.dev); }); });

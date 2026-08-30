@@ -477,6 +477,7 @@
     var dots = $('#themes');
     THEMES.forEach(function (th, i) { var d = document.createElement('span'); d.className = 'dot'; d.style.background = ({ aurora: '#5eead4', sunset: '#fb923c', neon: '#22d3ee', forest: '#34d399' })[th]; d.addEventListener('click', function () { setTheme(i); }); dots.appendChild(d); });
     setTheme(ti);
+    (function(){ function tick(){ var el=$('#liveTime'); if(el){ var d=new Date(); el.textContent=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'})+' • '+d.toLocaleDateString([],{month:'short',day:'numeric'}); } } tick(); setInterval(tick,1000); })();
     renderSidebar(); renderAll();
     $('#send').addEventListener('click', function () { var i = $('#chatInput'); ask(i.value); i.value = ''; });
     $('#chatInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') { ask(this.value); this.value = ''; } });
