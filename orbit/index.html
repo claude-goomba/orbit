@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Orbit — AI Assistant</title>
+  <title>Orbit — AI Assistant + Phone Designer</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -11,11 +11,33 @@
   <div class="app">
     <aside class="side">
       <div class="brand"><span>◉ Orbit</span></div>
-      <button class="nbtn" id="newChat">+ New chat</button>
-      <div class="sessLabel">Sessions</div>
-      <div class="sess" id="sessList"></div>
+      <div class="nav">
+        <button class="navBtn on" id="navChat" title="Chat with Orbit">💬 Chat</button>
+        <button class="navBtn" id="navDesigner" title="Design phone and other screens">📱 Designer</button>
+      </div>
+      <div id="chatSide">
+        <button class="nbtn" id="newChat">+ New chat</button>
+        <div class="sessLabel">Sessions</div>
+        <div class="sess" id="sessList"></div>
+      </div>
+      <div id="designerSide" style="display:none">
+        <div class="sessLabel">Devices</div>
+        <div class="deviceList" id="deviceList">
+          <button class="dBtn on" data-dev="phone">📱 Phone</button>
+          <button class="dBtn" data-dev="tablet">📖 Tablet</button>
+          <button class="dBtn" data-dev="watch">⌚ Watch</button>
+          <button class="dBtn" data-dev="desktop">🖥 Desktop</button>
+        </div>
+        <div class="sessLabel">Templates</div>
+        <div class="tmplList" id="tmplList">
+          <button class="tBtn" data-tmpl="blank">Blank</button>
+          <button class="tBtn" data-tmpl="login">Login</button>
+          <button class="tBtn" data-tmpl="profile">Profile</button>
+          <button class="tBtn" data-tmpl="shop">Shop</button>
+        </div>
+      </div>
       <div class="sideFoot">
-        <button class="kbtn" id="settingsBtn" title="Settings">⚙ API key</button>
+        <button class="kbtn" id="settingsBtn" title="DeepSeek API key">⚙ API key</button>
       </div>
     </aside>
     <main class="main">
@@ -23,10 +45,12 @@
         <div class="idx" id="idxLabel">index: …</div>
         <div class="spacer"></div>
         <div class="themes" id="themes"></div>
-        <button class="kbtn" id="exportBtn" title="Export chat">Export</button>
+        <button class="kbtn" id="exportBtn" title="Export current chat">Export</button>
         <button class="kbtn" id="clearBtn" title="Clear chat">Clear</button>
       </div>
-      <div class="chat">
+
+      <!-- CHAT VIEW -->
+      <div class="chat" id="chatView">
         <div class="msgs" id="msgs"></div>
         <div class="chips" id="chips">
           <span class="chip">What is the speed of light?</span>
@@ -39,7 +63,51 @@
           <input type="text" id="chatInput" placeholder="Ask Orbit… or type /help" autocomplete="off" />
           <button class="btn" id="send">Send</button>
         </div>
-        <div class="hint">Offline by default — a local ELIZA‑style brain with a large index + unit converter. Set a DeepSeek key (⚙) for real‑model power mode. Type <b>/help</b> for commands.</div>
+        <div class="hint">Offline — 1000+ entry index + converter. <b>/help</b> for commands. Tip: try the <b>Designer</b> tab to make phone screens with zero code.</div>
+      </div>
+
+      <!-- DESIGNER VIEW -->
+      <div class="designer" id="designerView" style="display:none">
+        <div class="dTop">
+          <div class="dTopLabel" id="deviceLabel">📱 Phone • 390×844</div>
+          <div class="spacer"></div>
+          <button class="kbtn" id="clearDesign" title="Clear canvas">Clear</button>
+          <button class="kbtn" id="saveDesign" title="Save to this browser">Save</button>
+          <button class="kbtn" id="exportDesign" title="Download as JSON">Export</button>
+          <button class="kbtn" id="importDesign" title="Paste JSON to load">Import</button>
+        </div>
+        <div class="dBody">
+          <div class="palette" id="palette">
+            <div class="palLabel">Add — click to place</div>
+            <button class="pBtn" data-type="text" title="Add text block">📝 Text</button>
+            <button class="pBtn" data-type="button" title="Add a button">🔘 Button</button>
+            <button class="pBtn" data-type="input" title="Add an input field">⌧ Input</button>
+            <button class="pBtn" data-type="image" title="Add image placeholder">🖼 Image</button>
+            <button class="pBtn" data-type="card" title="Add a card">▭ Card</button>
+            <button class="pBtn" data-type="icon" title="Add an icon">⭐ Icon</button>
+            <div class="palHint">Drag elements to move<br>Click to edit →</div>
+          </div>
+          <div class="canvasWrap">
+            <div class="phoneFrame" id="phoneFrame">
+              <div class="phoneNotch"></div>
+              <div class="phoneScreen" id="phoneScreen"></div>
+            </div>
+          </div>
+          <div class="props" id="props">
+            <div class="propsEmpty" id="propsEmpty">👈 Select an element<br><span>Click anything on the phone to edit it</span></div>
+            <div id="propsForm" style="display:none">
+              <label>Text <input id="propText" placeholder="Hello" /></label>
+              <label>Background <input id="propBg" type="color" /></label>
+              <label>Text color <input id="propColor" type="color" /></label>
+              <div class="rangeRow"><label>Size <span id="propSizeV">16</span></label><input id="propSize" type="range" min="10" max="32" /></div>
+              <div class="rangeRow"><label>Width <span id="propWV">120</span></label><input id="propW" type="range" min="40" max="360" /></div>
+              <div class="rangeRow"><label>Height <span id="propHV">40</span></label><input id="propH" type="range" min="20" max="220" /></div>
+              <div class="rangeRow"><label>Radius <span id="propRV">8</span></label><input id="propR" type="range" min="0" max="32" /></div>
+              <button id="propDelete" class="kbtn delBtn">🗑 Delete element</button>
+            </div>
+          </div>
+        </div>
+        <div class="hint">Very friendly: no code, just click, drag, and edit. Change device on the left. Templates give you a head start.</div>
       </div>
     </main>
   </div>

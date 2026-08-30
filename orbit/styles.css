@@ -61,4 +61,35 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto
 .btn:hover { filter: brightness(1.08); }
 .hint { font-size: 12px; opacity: .55; margin-top: 9px; text-align: center; }
 
-@media (max-width: 720px) { .side { width: 64px; } .sessName, .sessLabel, .brand span, .sideFoot .kbtn { display: none; } }
+.nav { display: flex; gap: 6px; margin: 2px 0 6px; }
+.navBtn { flex: 1; padding: 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: #fff; cursor: pointer; font-size: 13px; }
+.navBtn.on { background: linear-gradient(90deg, var(--a), var(--b)); color: #06121a; border-color: transparent; font-weight: 700; }
+.deviceList, .tmplList { display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px; }
+.dBtn, .tBtn, .pBtn { padding: 9px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: #fff; cursor: pointer; font-size: 13px; text-align: left; }
+.dBtn.on, .tBtn.on { border-color: var(--a); background: rgba(94,234,212,.12); }
+.pBtn:hover, .dBtn:hover, .tBtn:hover { background: rgba(255,255,255,.12); }
+.palLabel, .dTopLabel { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; opacity: .6; }
+.palHint { font-size: 11px; opacity: .45; margin-top: 12px; line-height: 1.4; }
+
+.designer { flex: 1; display: flex; flex-direction: column; min-height: 0; margin: 0 18px 14px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; backdrop-filter: blur(14px); overflow: hidden; }
+.dTop { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.dBody { flex: 1; display: flex; min-height: 0; }
+.palette { width: 140px; flex: none; padding: 14px; border-right: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; gap: 8px; }
+.canvasWrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 18px; gap: 10px; background: rgba(0,0,0,.18); overflow: auto; }
+.phoneFrame { position: relative; background: #0b0e1a; border: 10px solid #1a1f2e; border-radius: 28px; box-shadow: 0 20px 60px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.06); flex: none; overflow: hidden; transition: width .2s, height .2s; }
+.phoneNotch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 96px; height: 18px; background: #1a1f2e; border-radius: 0 0 14px 14px; z-index: 3; pointer-events: none; }
+.phoneScreen { position: relative; width: 100%; height: 100%; overflow: hidden; background: #0e1220; }
+.dEl { position: absolute; display: flex; align-items: center; justify-content: center; cursor: grab; user-select: none; border: 2px solid transparent; overflow: hidden; }
+.dEl.sel { border-color: var(--a); box-shadow: 0 0 0 2px rgba(94,234,212,.4); }
+.dEl:active { cursor: grabbing; }
+.props { width: 200px; flex: none; padding: 14px; border-left: 1px solid rgba(255,255,255,.08); overflow-y: auto; }
+.props label { display: flex; flex-direction: column; gap: 6px; font-size: 12px; margin-bottom: 12px; }
+.props input[type=text], .props input[type=color] { width: 100%; background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.14); color: #fff; border-radius: 8px; padding: 8px; }
+.props input[type=color] { height: 36px; padding: 2px; }
+.rangeRow { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; font-size: 12px; }
+.rangeRow input { width: 100%; accent-color: var(--a); }
+.delBtn { width: 100%; margin-top: 8px; background: #ef4444 !important; color: #fff !important; }
+.propsEmpty { font-size: 13px; opacity: .6; text-align: center; margin-top: 40px; line-height: 1.5; }
+.propsEmpty span { font-size: 11px; opacity: .7; }
+
+@media (max-width: 720px) { .side { width: 64px; } .sessName, .sessLabel, .brand span, .sideFoot .kbtn, .palHint, .palLabel, .dTopLabel { display: none; } .dBody { flex-direction: column; } .palette, .props { width: 100%; border: 0; border-top: 1px solid rgba(255,255,255,.08); } }
