@@ -1,0 +1,66 @@
+:root[data-theme='aurora']{--a:#f59e0b;--b:#a78bfa;--c:#f472b6;--bg1:#070b16;--bg2:#150b2c}
+:root[data-theme='sunset']{--a:#fb923c;--b:#f472b6;--c:#a78bfa;--bg1:#160a14;--bg2:#2a0f2e}
+:root[data-theme='neon']{--a:#22d3ee;--b:#3b82f6;--c:#e879f9;--bg1:#03101a;--bg2:#0a1530}
+:root[data-theme='forest']{--a:#34d399;--b:#a3e635;--c:#22d3ee;--bg1:#04130d;--bg2:#0a1f17}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif;color:#eef1f8;background:var(--bg1);overflow:hidden}
+.bg{position:fixed;inset:0;z-index:-1;background:linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg1));background-size:300% 300%;animation:drift 22s ease infinite}
+.bg::after{content:'';position:absolute;inset:0;background:radial-gradient(40vw 40vw at 20% 20%,var(--a),transparent 70%),radial-gradient(45vw 45vw at 85% 30%,var(--b),transparent 70%),radial-gradient(40vw 40vw at 60% 90%,var(--c),transparent 70%);opacity:.14}
+@keyframes drift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.app{display:flex;flex-direction:column;height:100vh}
+.top{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);backdrop-filter:blur(10px)}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px}
+.brand span{background:linear-gradient(90deg,var(--a),var(--b),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand small{font-size:11px;opacity:.6;font-weight:600;margin-left:4px}
+.logoImg{width:28px;height:28px;display:block}
+.statsBar{display:flex;gap:12px;align-items:center;margin-left:12px}
+.stat{display:flex;flex-direction:column;align-items:center;min-width:70px;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:6px 10px}
+.stat b{font-size:15px}
+.stat span{font-size:10px;opacity:.6;text-transform:uppercase;letter-spacing:1px}
+.liveTime{font-size:12px;opacity:.8;padding:6px 10px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.04);font-variant-numeric:tabular-nums}
+.spacer{flex:1}
+.themes{display:flex;gap:7px}
+.themes .dot{width:16px;height:16px;border-radius:50%;cursor:pointer;opacity:.5}
+.themes .dot.on{opacity:1;transform:scale(1.15);box-shadow:0 0 10px currentColor}
+.layout{flex:1;display:flex;min-height:0;gap:14px;padding:14px}
+.left{width:300px;flex:none;display:flex;flex-direction:column;gap:14px}
+.shop{flex:1;min-width:0;display:flex;flex-direction:column;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden;backdrop-filter:blur(14px)}
+.right{width:260px;flex:none;display:flex;flex-direction:column;gap:14px;overflow:auto}
+.clickArea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.clickBtn{width:180px;height:180px;border-radius:50%;border:4px solid rgba(255,255,255,.12);background:radial-gradient(circle at 30% 30%, var(--a), var(--b));color:#fff;font-size:42px;cursor:pointer;box-shadow:0 12px 40px rgba(0,0,0,.4), inset 0 0 20px rgba(255,255,255,.15);transition:transform .06s, filter .15s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.clickBtn:active{transform:scale(.96)}
+.clickBtn span{font-size:16px;font-weight:800;letter-spacing:1px}
+.clickPower{font-size:13px;opacity:.8}
+.clickPower small{color:var(--a)}
+.hint{font-size:11px;opacity:.5;text-align:center}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px}
+.cardTitle{font-size:12px;text-transform:uppercase;letter-spacing:1px;opacity:.8;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
+.badge{font-size:10px;background:rgba(245,158,11,.2);border:1px solid rgba(245,158,11,.4);padding:2px 6px;border-radius:999px}
+.btn{width:100%;background:linear-gradient(90deg,var(--a),var(--b));color:#06121a;border:0;border-radius:10px;padding:10px;font-weight:800;cursor:pointer}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.prestige{background:linear-gradient(90deg,#f59e0b,#f472b6)}
+.kbtn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff;border-radius:10px;padding:8px 10px;cursor:pointer;font-size:13px}
+.tabs{display:flex;gap:8px;padding:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+.tab{flex:1;padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#fff;cursor:pointer;font-size:13px}
+.tab.on{background:linear-gradient(90deg,var(--a),var(--b));color:#06121a;border-color:transparent;font-weight:700}
+.tabPane{display:none;flex:1;overflow:auto;padding:12px;gap:8px;flex-direction:column}
+.tabPane.on{display:flex}
+.gen{ display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.gen.afford{border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.08)}
+.genIcon{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:rgba(0,0,0,.25);font-size:20px}
+.genInfo{flex:1;min-width:0}
+.genName{font-weight:700;font-size:13px}
+.genDesc{font-size:11px;opacity:.6}
+.genMeta{font-size:11px;opacity:.8}
+.genBuy{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;font-weight:700}
+.genBuy:disabled{opacity:.35}
+.upg{padding:10px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.upg.owned{opacity:.5}
+.statList{font-size:12px;line-height:1.7}
+.statList b{color:var(--a)}
+.muted{font-size:12px;opacity:.6}
+.goldenCard{border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.12)}
+.float{position:fixed;pointer-events:none;font-weight:800;color:var(--a);text-shadow:0 2px 10px rgba(0,0,0,.5);animation:float 700ms ease-out forwards}
+@keyframes float{0%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(-60px) scale(1.1);opacity:0}}
+@media(max-width:900px){.layout{flex-direction:column;overflow:auto}.left,.right{width:100%}}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="aurora">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbit Clicker — super featured</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="app">
+    <header class="top">
+      <div class="brand"><img src="logo.svg" class="logoImg" alt="Clicker"/><span>Orbit Clicker</span><small>super featured</small></div>
+      <div class="statsBar">
+        <div class="stat"><b id="coins">0</b><span>coins</span></div>
+        <div class="stat"><b id="cps">0</b><span>per sec</span></div>
+        <div class="stat"><b id="shards">0</b><span>shards</span></div>
+        <div class="liveTime" id="liveTime"></div>
+      </div>
+      <div class="themes" id="themes"></div>
+    </header>
+
+    <div class="layout">
+      <aside class="left">
+        <div class="clickArea" id="clickArea">
+          <button class="clickBtn" id="clickBtn" aria-label="Click">👆<span>CLICK</span></button>
+          <div class="clickPower">+<span id="clickPower">1</span> per click <small id="critInfo"></small></div>
+          <div class="hint">Tip: critical hits (2% ×10) • offline earnings • very friendly</div>
+        </div>
+        <div class="card">
+          <div class="cardTitle">Prestige <span class="badge" id="prestigeBadge">0 shards</span></div>
+          <div class="muted" style="font-size:12px;margin-bottom:8px">Reset for <b>shards</b> — each gives +10% forever. Needs 1M coins.</div>
+          <button class="btn prestige" id="prestigeBtn">✨ Prestige</button>
+        </div>
+      </aside>
+
+      <main class="shop">
+        <div class="tabs">
+          <button class="tab on" data-tab="gen">Generators</button>
+          <button class="tab" data-tab="upg">Upgrades</button>
+          <button class="tab" data-tab="ach">Achievements</button>
+        </div>
+        <div class="tabPane on" id="pane-gen"></div>
+        <div class="tabPane" id="pane-upg"></div>
+        <div class="tabPane" id="pane-ach"></div>
+      </main>
+
+      <aside class="right">
+        <div class="card">
+          <div class="cardTitle">Stats</div>
+          <div class="statList" id="statList"></div>
+          <button class="kbtn" id="saveBtn" style="width:100%;margin-top:8px">💾 Save</button>
+          <button class="kbtn" id="resetBtn" style="width:100%;margin-top:6px;background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.4)">🗑 Reset</button>
+        </div>
+        <div class="card goldenCard" id="goldenCard" style="display:none">
+          <div class="cardTitle">✨ Golden Orbit!</div>
+          <button class="btn" id="goldenBtn" style="width:100%">Catch it! +10% coins</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
